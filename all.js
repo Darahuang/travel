@@ -1,9 +1,9 @@
 //建立DOM節點
-var el = document.getElementById('district');
-var list = document.querySelector('.list');
-var popular = document.querySelector('.popular')
+const el = document.getElementById('district');
+const list = document.querySelector('.list');
+const popular = document.querySelector('.popular')
 //資料
-var data = [
+const data = [
     
             {
                 Ticketinfo: "免費參觀",
@@ -2609,8 +2609,8 @@ var data = [
 
 
 // 新增陣列並將區域加到陣列
-var arrayList = [];
-for (var i = 0; i < data.length; i++) {
+let arrayList = [];
+for (let i = 0; i < data.length; i++) {
     arrayList.push(data[i].Zone);
 }
 
@@ -2619,8 +2619,8 @@ const zone = Array.from(new Set(arrayList));
 
 // 動態新增option元素
 function zoneList(){
-    var str = '';
-    for (var i = 0; i < zone.length; i++) {
+    let str = '';
+    for (let i = 0; i < zone.length; i++) {
         let option = document.createElement('option');
         option.setAttribute('value', zone[i]);
         option.appendChild(document.createTextNode(zone[i])); 
@@ -2638,14 +2638,14 @@ el.addEventListener('change',show,false);
 popular.addEventListener('click',showPopular,false)
 
 //變數
-var zoneTitle = document.querySelector('.zone');
-var len = data.length
+const zoneTitle = document.querySelector('.zone');
+const len = data.length
 
 function showPopular(e) {
-    var name = e.target.nodeName;
-    var select = e.target.innerHTML;
-    var str = '';
-    for (var i = 0; i <len; i++){
+    const name = e.target.nodeName;
+    const select = e.target.innerHTML;
+    let str = '';
+    for (let i = 0; i <len; i++){
         if (name === 'LI' && select === data[i].Zone ){
         str += '<div class="info"><div class="picture" style="background-image:url(' + data[i].Picture1 + ')"><div class="title">' + data[i].Name + '</div></div><div class="bottom"><p><i class="fa fa-clock-o" aria-hidden="true"></i> ' + data[i].Opentime + '</p><p><i class="fa fa-map-marker " aria-hidden="true"></i> ' + data[i].Add + '</p><p><i class="fa fa-mobile " aria-hidden="true"></i> ' + data[i].Tel + '</p><p class="ticket"><i class="fa fa-tag" aria-hidden="true"></i>' + data[i].Ticketinfo + '</p></div></div></div>';           
      zoneTitle.textContent = select;
@@ -2660,9 +2660,9 @@ function showPopular(e) {
 
 
 function show(e) {
-    var select = e.target.value;
-    var str = '';
-    for (var i = 0; i < len; i++){
+    const select = e.target.value;
+    let str = '';
+    for (let i = 0; i < len; i++){
         if (select === data[i].Zone){
             
             str += 
